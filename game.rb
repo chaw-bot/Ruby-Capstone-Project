@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Game
   attr_accessor :multiplayer, :last_played_at
 
