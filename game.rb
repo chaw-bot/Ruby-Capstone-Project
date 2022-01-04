@@ -8,6 +8,6 @@ class Game
   end
 
   def can_be_archived?
-    super || @last_played_at > 2
+    super && @last_played_at > 2
   end
 end
