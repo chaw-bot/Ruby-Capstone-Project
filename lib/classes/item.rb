@@ -3,7 +3,7 @@ class Item
   attr_accessor :id
 
   def initialize(publish_date)
-    @id = Random.rand(1..10000)
+    @id = Random.rand(1..10_000)
     @publish_date = publish_date
     @archived = false
   end
@@ -37,6 +37,4 @@ class Item
   def can_be_archived?
     @publish_date.to_i > 10
   end
-
-
 end
