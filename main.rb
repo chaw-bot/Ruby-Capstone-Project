@@ -47,9 +47,9 @@ class HomePage
     when 7
       @create_items.create_music
     when 8
-      puts '8'
+      @create_book.create_book
     when 9
-      puts '9'
+      @create_game.create_game
     when 10
       puts 'Exit'
       exit
