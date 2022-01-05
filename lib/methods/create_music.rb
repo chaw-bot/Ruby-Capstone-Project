@@ -2,7 +2,7 @@ require_relative '../classes/music'
 
 class CreateMusic
   def initialize(music_album)
-    @music_album = music_album
+    @game = game
   end
 
   def create_music
@@ -24,7 +24,7 @@ class CreateMusic
     print "Is it on Spotify? [Y/N] "
     on_spotify = gets.chomp.downcase == 'Y'
 
-    created_music = MusicAlbum.new(genre = genre, author = author, source = source, label = label, publish_date = publish_date, on_spotify = on_spotify)
+    created_music = MusicAlbum.new(publish_date = publish_date, on_spotify = on_spotify)
     @music_album.push(created_music)
 
     puts "Album has been created!"
