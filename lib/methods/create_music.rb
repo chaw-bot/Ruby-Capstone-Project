@@ -2,7 +2,7 @@ require_relative '../classes/music'
 
 class CreateMusic
   def initialize(music_album)
-    @game = game
+    @music_album = music_album
   end
 
   def create_music
