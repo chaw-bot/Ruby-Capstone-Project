@@ -1,9 +1,8 @@
-require_relative './lib/methods/create_music'
+require_relative './lib/methods/create_items'
 
 class HomePage
   def initialize
-    @music_album = []
-    @create_music = CreateMusic.new(@music_album)
+    @create_items = CreateItems.new
   end
 
   def menu
@@ -46,7 +45,7 @@ class HomePage
     when 6
       puts '6'
     when 7
-      @create_music.create_music
+      @create_items.create_music
     when 8
       puts '8'
     when 9
