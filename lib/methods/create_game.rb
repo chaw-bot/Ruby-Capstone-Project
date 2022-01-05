@@ -6,8 +6,11 @@ class CreateGame
   end
 
   def create_game
-    prints "Enter a game: "
-    game = gets.chomp
+    print "Does game want to be played by several players? [Y/N] "
+    multiplayer = gets.chomp.downcase == 'Y'
+
+    print "Enter the last time played: "
+    last_played_at = gets.chomp.to_i
 
     create_game = Game.new(multiplayer: multiplayer, last_played_at: last_played_at)
     @games.push(create_game)

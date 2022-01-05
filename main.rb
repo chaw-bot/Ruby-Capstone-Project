@@ -1,5 +1,6 @@
 require_relative './lib/methods/create_music'
 require_relative './lib/methods/create_book.rb'
+require_relative './lib/methods/create_game.rb'
 
 class HomePage
   def initialize
@@ -7,6 +8,7 @@ class HomePage
     @book = []
     @create_music = CreateMusic.new(@music_album)
     @create_book = CreateBook.new(@book)
+    @create_game = CreateGame.new(@game)
   end
 
   def menu
@@ -53,7 +55,7 @@ class HomePage
     when 8
       @create_book.create_book
     when 9
-      puts '9'
+      @create_game.create_game
     when 10
       puts 'Exit'
       exit
