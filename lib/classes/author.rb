@@ -13,4 +13,12 @@ class Author
     @items.push item
     item.add_author self
   end
+
+  def to_json(*_args)
+    JSON.dump({
+                # publisher: @publisher
+                first_name: @first_name,
+                last_name: @last_name
+              })
+  end
 end

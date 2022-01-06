@@ -12,4 +12,12 @@ class Game < Item
   def can_be_archived?
     super && @last_played_at > 2
   end
+
+  def to_json(*_args)
+    JSON.dump({
+                # publisher: @publisher
+                multiplayer: @multiplayer,
+                last_played_at: @last_played_at
+              })
+  end
 end

@@ -7,35 +7,35 @@ require_relative 'main_methods'
 module CreateGame
   include MainMethods
 
-  # def save_book
-  #   File.write('./json/book.json', JSON.dump(@books))
-  # end
+  def save_game
+    File.write('./json/game.json', JSON.dump(@games))
+  end
 
-  # def read_books
-  #   return unless File.exist?('./json/book.json')
+  def read_games
+    return unless File.exist?('./json/game.json')
 
-  #   file = File.read('./json/book.json')
-  #   file_data = JSON.parse(file)
-  #   file_data.each do |book|
-  #     book_instance = Book.new(book['publish_date'], book['cover_state'])
-  #     @books.push(book_instance)
-  #   end
-  # end
+    file = File.read('./json/game.json')
+    file_data = JSON.parse(file)
+    file_data.each do |game|
+      game_instance = Game.new(game['multiplayer'], game['last_played_at'])
+      @games.push(game_instance)
+    end
+  end
 
-  # def save_label
-  #   File.write('./json/label.json', JSON.dump(@labels))
-  # end
+  def save_author
+    File.write('./json/author.json', JSON.dump(@authors))
+  end
 
-  # def read_label
-  #   return unless File.exist?('./json/label.json')
+  def read_author
+    return unless File.exist?('./json/author.json')
 
-  #   file = File.read('./json/label.json')
-  #   file_data = JSON.parse(file)
-  #   file_data.each do |label|
-  #     new_label = Label.new(label['title'], label['color'])
-  #     @labels.push(new_label)
-  #   end
-  # end
+    file = File.read('./json/author.json')
+    file_data = JSON.parse(file)
+    file_data.each do |author|
+      new_author = Author.new(author['first_name'], author['last_name'])
+      @authors.push(new_author)
+    end
+  end
 
   def create_game_list
     puts 'How many Players? '
@@ -50,11 +50,11 @@ module CreateGame
     add_genre(new_game)
     add_label(new_game)
 
-    # save_label
+    save_author
 
     @games.push(new_game)
 
-    # save_book
+    save_game
 
     puts Rainbow('Game created!').white.bright.bg(:green)
   end

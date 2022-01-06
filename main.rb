@@ -28,6 +28,8 @@ class HomePage
     read_genre
     read_books
     read_label
+    read_games
+    read_author
   end
 
   def menu
