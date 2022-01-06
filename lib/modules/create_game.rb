@@ -44,7 +44,7 @@ module CreateGame
     print 'When last was the game played?: '
     date_of = gets.chomp
 
-    new_game = Game.new(number_of_players , date_of)
+    new_game = Game.new(number_of_players, date_of)
 
     add_author(new_game)
     add_genre(new_game)
