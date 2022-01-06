@@ -1,8 +1,10 @@
-class Book
-  attr_accessor :publisher, :cover_state
+require_relative 'item'
 
-  def initialize(publisher, cover_state, *args)
-    super(*args)
+class Book < Item
+  attr_accessor :publisher, :cover_state, :publish_date
+
+  def initialize(publish_date, cover_state)
+    super(publish_date)
     @publisher = publisher
     @cover_state = cover_state
   end
@@ -11,21 +13,11 @@ class Book
     super || @cover_state == 'bad'
   end
 
-  def to_s
-    "[Book] Publisher: \"#{@publisher}\", Cover State: #{@cover_state}, #{super}"
-  end
-
-  def to_json(*args)
-    super.merge({
-                  JSON.create_id => self.class.name,
-                  'publisher' => @publisher,
-                  'cover_state' => @cover_state
-                }).to_json(*args)
-  end
-
-  def self.json_create(object)
-    book = new(object['publisher'], object['cover_state'], Time.parse(object['publish_date']))
-    book.id = object['id']
-    book
+  def to_json(*_args)
+    JSON.dump({
+                # publisher: @publisher
+                publish_date: @publish_date,
+                cover_state: @cover_state
+              })
   end
 end
