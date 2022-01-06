@@ -41,7 +41,7 @@ module CreateBook
     puts 'What date was the book released? '
     publish_date = gets.chomp
 
-    print 'Is the cover in good state?(Yes/No)'
+    print 'Is the cover in good state? Good/Bad: '
     state = gets.chomp
 
     new_book = Book.new(publish_date, state)
@@ -56,16 +56,18 @@ module CreateBook
 
     save_book
 
-    puts 'Book created!'
+    puts Rainbow('Book created!').white.bright.bg(:green)
   end
 
   def book_list
     if @books.length.zero?
-      puts "No books added yet!\n"
+      puts Rainbow(" No books added yet!\n ").white.bright.underline.bg(:red)
     else
-      puts "List of books:\n"
+      puts Rainbow("List of books:\n").green.bright.underline
       @books.each_with_index do |book, index|
-        puts "#{index}. Published on: #{book.publish_date} Publisher: #{book.publisher} Cover State: #{book.cover_state}"
+        puts "#{index}. Published on: #{book.publish_date}
+        Publisher: #{book.publisher}
+        Cover State: #{book.cover_state}"
       end
     end
   end

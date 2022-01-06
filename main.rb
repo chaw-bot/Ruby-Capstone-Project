@@ -4,8 +4,6 @@ require_relative './lib/modules/create_genre'
 require_relative './lib/modules/create_book'
 require_relative './lib/modules/create_label'
 
-
-
 class HomePage
   include CreateMusic
   include GenreModule
@@ -31,7 +29,7 @@ class HomePage
     Dir.mkdir 'json' unless Dir.exist? 'json'
 
     puts Rainbow("\nWelcome to your Catalog!\n").blue.bright.underline
-    puts Rainbow("  Please choose your option: ").red.bright.bg(:pink)
+    puts Rainbow('  Please choose your option: ').red.bright.underline.bg(:pink)
 
     @options = {
       ' 1': 'List all books        ',
@@ -75,7 +73,7 @@ class HomePage
     when 9
       puts '9'
     when 10
-      puts 'Bye! See you soon!'
+      puts Rainbow(' Bye! See you soon! ').white.bright.bg(:green)
       exit
     else
       puts Rainbow(' Invalid option! ').white.bright.bg(:red)

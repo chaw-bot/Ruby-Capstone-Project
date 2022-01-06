@@ -43,7 +43,7 @@ module CreateMusic
     puts 'When was the release date? '
     publish_date = gets.chomp
 
-    print 'Is it on Spotify?(true/false)'
+    print 'Is it on Spotify? Yes/No: '
     spotify = gets.chomp
 
     new_album = MusicAlbum.new(spotify, publish_date)
@@ -68,7 +68,7 @@ module CreateMusic
       puts "List of Albums:\n"
       @music_albums.each_with_index do |album, index|
         puts "#{index}. Published on: #{album.publish_date}
-        On Spotify #{album.on_spotify}"
+        Is it on Spotify #{album.on_spotify}"
       end
     end
   end

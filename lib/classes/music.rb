@@ -18,8 +18,7 @@ class MusicAlbum < Item
   def to_json(*_args)
     JSON.dump({
                 spotify: @on_spotify,
-                date: @publish_date,
-                #title: @label.title
+                date: @publish_date
                 # title: @label.title
               })
   end
