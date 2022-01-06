@@ -22,6 +22,8 @@ class HomePage
   def load_data
     read_albums
     read_genre
+    read_books
+    read_label
   end
 
   def menu

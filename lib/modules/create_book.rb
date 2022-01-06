@@ -7,37 +7,35 @@ require_relative 'main_methods'
 module CreateBook
   include MainMethods
 
-  # def save_album
-  #   File.write('./json/album.json', JSON.dump(@music_albums))
-  # end
+  def save_book
+    File.write('./json/book.json', JSON.dump(@books))
+  end
 
-  # def read_albums
-  #   return unless File.exist?('./json/album.json')
+  def read_books
+    return unless File.exist?('./json/book.json')
 
-  #   file = File.read('./json/album.json')
-  #   file_data = JSON.parse(file)
-  #   file_data.each do |album|
-  #     album_instance = MusicAlbum.new(album['on_spotify'], album['date'])
-  #     # label_instance = Label.new(album['title'], album['color'])
-  #     # album_instance.label = label_instance
-  #     @music_albums.push(album_instance)
-  #   end
-  # end
+    file = File.read('./json/book.json')
+    file_data = JSON.parse(file)
+    file_data.each do |book|
+      book_instance = Book.new(book['publish_date'], book['cover_state'])
+      @books.push(book_instance)
+    end
+  end
 
-  # def save_genre
-  #   File.write('./json/genre.json', JSON.dump(@genres))
-  # end
+  def save_label
+    File.write('./json/label.json', JSON.dump(@labels))
+  end
 
-  # def read_genre
-  #   return unless File.exist?('./json/genre.json')
+  def read_label
+    return unless File.exist?('./json/label.json')
 
-  #   file = File.read('./json/genre.json')
-  #   file_data = JSON.parse(file)
-  #   file_data.each do |genre|
-  #     new_genre = Genre.new(genre['name'])
-  #     @genres.push(new_genre)
-  #   end
-  # end
+    file = File.read('./json/label.json')
+    file_data = JSON.parse(file)
+    file_data.each do |label|
+      new_label = Label.new(label['title'], label['color'])
+      @labels.push(new_label)
+    end
+  end
 
   def create_book_list
     puts 'What date was the book released? '
@@ -52,11 +50,11 @@ module CreateBook
     add_genre(new_book)
     add_label(new_book)
 
-    # save_genre
+    save_label
 
     @books.push(new_book)
 
-    # save_album
+    save_book
 
     puts 'Book created!'
   end
