@@ -5,7 +5,7 @@ require_relative '../classes/label'
 
 module MainMethods
   def add_author(item)
-    print "Enter the authors full name:\n"
+    puts "Enter the authors full name:\n"
     print 'First name: '
     first_name = gets.chomp
 
@@ -18,7 +18,7 @@ module MainMethods
   end
 
   def add_genre(item)
-    print "Enter the genre of this item:\n"
+    puts "Enter the genre of this item:\n"
     print 'Genre: '
     genre_name = gets.chomp
 
@@ -28,7 +28,7 @@ module MainMethods
   end
 
   def add_label(item)
-    print "Enter the label details of the item:\n"
+    puts "Enter the label details of the item:\n"
     print 'Title: '
     title = gets.chomp
 

@@ -9,7 +9,7 @@ module GenreModule
     else
       puts "List of all genres:\n"
       @genres.each_with_index do |genre, index|
-        print "#{index}. #{genre.name}"
+        puts "#{index}. #{genre.name}"
       end
     end
   end

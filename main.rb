@@ -12,9 +12,16 @@ class HomePage
     @music_albums = []
   end
 
+  def load_data
+    read_albums
+    read_genre
+  end
+
   def menu
-    puts "\nWelcome to your catalog!\n"
-    puts 'Please choose your option: '
+    Dir.mkdir 'json' unless Dir.exist? 'json'
+  
+    puts "\nWelcome to your Catalog!\n"
+    puts "Please choose your option:\n"
 
     @options = {
       '1': 'List all books',
@@ -33,7 +40,7 @@ class HomePage
       puts "#{index} - #{string}"
     end
 
-    print "\nEnter option from above list: "
+    puts "\nEnter option from above list: "
     gets.chomp.to_i
   end
 
@@ -58,7 +65,7 @@ class HomePage
     when 9
       puts '9'
     when 10
-      puts 'Exit'
+      puts 'Bye! See you soon!'
       exit
     else
       puts 'Invalid option'
@@ -74,6 +81,7 @@ end
 
 def main
   app = HomePage.new
+  app.load_data
   app.run
 end
 

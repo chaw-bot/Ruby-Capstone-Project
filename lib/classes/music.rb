@@ -14,4 +14,12 @@ class MusicAlbum < Item
   def can_be_archived?
     @on_spotify && super
   end
+
+  def to_json(*_args)
+    JSON.dump({
+                spotify: @on_spotify,
+                date: @publish_date,
+                title: @label.title
+              })
+  end
 end
