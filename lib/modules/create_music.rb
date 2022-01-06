@@ -40,7 +40,7 @@ module CreateMusic
   end
 
   def create_music_album
-    puts 'When was the release date? '
+    puts ' When was the release date? '
     publish_date = gets.chomp
 
     print 'Is it on Spotify? Yes/No: '
@@ -65,10 +65,10 @@ module CreateMusic
     if @music_albums.length.zero?
       puts Rainbow(" No albums added yet!\n ").white.bright.bg(:red)
     else
-      puts "List of Albums:\n"
+      puts Rainbow(" List of Albums:\n ").white.bright.underline
       @music_albums.each_with_index do |album, index|
-        puts "#{index}. Published on: #{album.publish_date}
-        Is it on Spotify #{album.on_spotify}"
+        puts "#{index + 1}. Published on: #{album.publish_date}\n-  Is it on Spotify #{album.on_spotify}"
+        puts '____________________________________________'
       end
     end
   end

@@ -38,10 +38,10 @@ module CreateBook
   end
 
   def create_book_list
-    puts 'What date was the book released? '
+    puts 'On what date was the book released? '
     publish_date = gets.chomp
 
-    print 'Is the cover in good state? Good/Bad: '
+    print 'Is the cover in a good/bad state? Good/Bad: '
     state = gets.chomp
 
     new_book = Book.new(publish_date, state)
@@ -65,9 +65,10 @@ module CreateBook
     else
       puts Rainbow("List of books:\n").green.bright.underline
       @books.each_with_index do |book, index|
-        puts "#{index}. Published on: #{book.publish_date}
-        Publisher: #{book.publisher}
-        Cover State: #{book.cover_state}"
+        puts "#{index + 1}. Publisher: #{book.publisher}\n
+        -  Published on: #{book.publish_date}\n
+        -  Cover State: #{book.cover_state}"
+        puts '____________________________________________'
       end
     end
   end
