@@ -3,12 +3,16 @@ require_relative './lib/modules/create_music'
 require_relative './lib/modules/create_genre'
 require_relative './lib/modules/create_book'
 require_relative './lib/modules/create_label'
+require_relative './lib/modules/create_author'
+require_relative './lib/modules/create_game'
 
 class HomePage
   include CreateMusic
   include GenreModule
   include CreateBook
   include LabelModule
+  include CreateGame
+  include AuthorModule
 
   def initialize
     @authors = []
@@ -16,6 +20,7 @@ class HomePage
     @labels = []
     @music_albums = []
     @books = []
+    @games = []
   end
 
   def load_data
@@ -63,15 +68,15 @@ class HomePage
     when 4
       genre_list
     when 5
-      puts '5'
+      game_list
     when 6
-      puts '6'
+      author_list
     when 7
       create_music_album
     when 8
       create_book_list
     when 9
-      puts '9'
+      create_game_list
     when 10
       puts Rainbow(' Bye! See you soon! ').white.bright.bg(:green)
       exit
