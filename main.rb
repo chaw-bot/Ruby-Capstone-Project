@@ -59,6 +59,7 @@ class HomePage
     gets.chomp.to_i
   end
 
+  # rubocop:disable Metrics/CyclomaticComplexity
   def pick_option(input)
     case input
     when 1
@@ -86,6 +87,7 @@ class HomePage
       puts Rainbow(' Invalid option! ').white.bright.bg(:red)
     end
   end
+  # rubocop:enable Metrics/CyclomaticComplexity
 
   def run
     loop do
