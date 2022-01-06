@@ -2,7 +2,10 @@ require_relative './lib/methods/create_items'
 
 class HomePage
   def initialize
-    @create_items = CreateItems.new
+    @authors = []
+    @genres = []
+    @labels = []
+    @music_albums = []
   end
 
   def menu
