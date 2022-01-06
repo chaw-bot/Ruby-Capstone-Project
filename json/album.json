@@ -1,1 +1,1 @@
-[{"spotify":"1","date":"2020/10/1","title":"Title1"},{"spotify":"2","date":"2021/12/12","title":"Title2"}]
+[{"spotify":null,"date":"2020/10/1"},{"spotify":null,"date":"2021/12/12"},{"spotify":"true","date":"2020/12/12"}]

@@ -19,7 +19,7 @@ class MusicAlbum < Item
     JSON.dump({
                 spotify: @on_spotify,
                 date: @publish_date,
-                title: @label.title
+                #title: @label.title
               })
   end
 end

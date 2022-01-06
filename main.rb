@@ -1,3 +1,4 @@
+require 'rainbow'
 require_relative './lib/modules/create_music'
 require_relative './lib/modules/create_genre'
 
@@ -20,24 +21,24 @@ class HomePage
   def menu
     Dir.mkdir 'json' unless Dir.exist? 'json'
 
-    puts "\nWelcome to your Catalog!\n"
-    puts "Please choose your option:\n"
+    puts Rainbow("\nWelcome to your Catalog!\n").blue.bright.underline
+    puts Rainbow("  Please choose your option: ").red.bright.bg(:pink)
 
     @options = {
-      '1': 'List all books',
-      '2': 'List all labels',
-      '3': 'List all music albums',
-      '4': 'List all genres',
-      '5': 'List of games',
-      '6': 'List all authors',
-      '7': 'Add a music album',
-      '8': 'Add a book',
-      '9': 'Add a game',
-      '10': 'Exit'
+      ' 1': 'List all books        ',
+      ' 2': 'List all labels       ',
+      ' 3': 'List all music albums ',
+      ' 4': 'List all genres       ',
+      ' 5': 'List of games         ',
+      ' 6': 'List all authors      ',
+      ' 7': 'Add a music album     ',
+      ' 8': 'Add a book            ',
+      ' 9': 'Add a game            ',
+      ' 10': 'Exit                 '
     }
 
     @options.each do |index, string|
-      puts "#{index} - #{string}"
+      puts Rainbow("#{index} - #{string}").black.bright.bg(:pink)
     end
 
     puts "\nEnter option from above list: "
@@ -68,7 +69,7 @@ class HomePage
       puts 'Bye! See you soon!'
       exit
     else
-      puts 'Invalid option'
+      puts Rainbow(' Invalid option! ').white.bright.bg(:red)
     end
   end
 

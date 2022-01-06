@@ -60,12 +60,12 @@ module CreateMusic
 
     save_album
 
-    puts 'Album created!'
+    puts Rainbow(' Album created! ').white.bright.bg(:green)
   end
 
   def album_list
     if @music_albums.length.zero?
-      puts "No albums added yet!\n"
+      puts Rainbow(" No albums added yet!\n ").white.bright.bg(:red)
     else
       puts "List of Albums:\n"
       @music_albums.each_with_index do |album, index|
