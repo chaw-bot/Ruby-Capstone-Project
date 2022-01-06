@@ -1,6 +1,10 @@
-require_relative './lib/methods/create_items'
+require_relative './lib/modules/create_music'
+require_relative './lib/modules/create_genre'
 
 class HomePage
+  include CreateMusic
+  include GenreModule
+
   def initialize
     @authors = []
     @genres = []
@@ -40,19 +44,19 @@ class HomePage
     when 2
       puts '2'
     when 3
-      puts '3'
+      album_list
     when 4
-      puts '4'
+      genre_list
     when 5
       puts '5'
     when 6
       puts '6'
     when 7
-      @create_items.create_music
+      create_music_album
     when 8
-      @create_book.create_book
+      puts '8'
     when 9
-      @create_game.create_game
+      puts '9'
     when 10
       puts 'Exit'
       exit
