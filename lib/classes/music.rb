@@ -20,6 +20,7 @@ class MusicAlbum < Item
                 spotify: @on_spotify,
                 date: @publish_date,
                 #title: @label.title
+                # title: @label.title
               })
   end
 end

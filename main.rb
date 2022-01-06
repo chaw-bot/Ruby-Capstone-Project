@@ -1,21 +1,30 @@
 require 'rainbow'
 require_relative './lib/modules/create_music'
 require_relative './lib/modules/create_genre'
+require_relative './lib/modules/create_book'
+require_relative './lib/modules/create_label'
+
+
 
 class HomePage
   include CreateMusic
   include GenreModule
+  include CreateBook
+  include LabelModule
 
   def initialize
     @authors = []
     @genres = []
     @labels = []
     @music_albums = []
+    @books = []
   end
 
   def load_data
     read_albums
     read_genre
+    read_books
+    read_label
   end
 
   def menu
@@ -48,9 +57,9 @@ class HomePage
   def pick_option(input)
     case input
     when 1
-      puts '1'
+      book_list
     when 2
-      puts '2'
+      label_list
     when 3
       album_list
     when 4
@@ -62,7 +71,7 @@ class HomePage
     when 7
       create_music_album
     when 8
-      puts '8'
+      create_book_list
     when 9
       puts '9'
     when 10
