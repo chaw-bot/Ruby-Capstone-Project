@@ -1,40 +1,42 @@
+require 'json'
 require_relative '../classes/author'
 require_relative '../classes/genre'
 require_relative '../classes/label'
-require_relative '../classes/source'
 
 module MainMethods
-  def create_author
-    puts "\n Add a new author: "
-    print "\n First name: "
+  def add_author(item)
+    print "Enter the authors full name:\n"
+    print 'First name: '
     first_name = gets.chomp
-    print "\n Last name: "
+
+    print 'Last name: '
     last_name = gets.chomp
 
-    Author.new(first_name, last_name)
+    author_name = Author.new(first_name, last_name)
+    author_name.add_item(item)
+    @authors.push(author_name)
   end
 
-  def create_genre
-    puts "\n Add a new genre: "
-    genre = gets.chomp
+  def add_genre(item)
+    print "Enter the genre of this item:\n"
+    print 'Genre: '
+    genre_name = gets.chomp
 
-    Genre.new(genre)
+    genre = Genre.new(genre_name)
+    genre.add_item(item)
+    @genres.push(genre)
   end
 
-  def create_label
-    puts "\n Add a new label: "
-    print "\n Label title: "
-    label_title = gets.chomp
-    print "\n Label color: "
-    label_color = gets.chomp
+  def add_label(item)
+    print "Enter the label details of the item:\n"
+    print 'Title: '
+    title = gets.chomp
 
-    Label.new(label_title, label_color)
-  end
+    print 'Color: '
+    color = gets.chomp
 
-  def create_source
-    puts "\n Add a new source: "
-    source_name = gets.chomp
-
-    Source.new(source_name)
+    label = Label.new(title, color)
+    label.add_item(item)
+    @labels.push(label)
   end
 end
