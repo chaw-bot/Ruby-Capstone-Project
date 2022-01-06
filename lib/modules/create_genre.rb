@@ -1,4 +1,4 @@
-require_relative 'mainMethods'
+require_relative 'main_methods'
 
 module GenreModule
   include MainMethods

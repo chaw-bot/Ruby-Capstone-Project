@@ -19,7 +19,7 @@ class HomePage
 
   def menu
     Dir.mkdir 'json' unless Dir.exist? 'json'
-  
+
     puts "\nWelcome to your Catalog!\n"
     puts "Please choose your option:\n"
 

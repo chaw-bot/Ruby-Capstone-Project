@@ -4,7 +4,7 @@ require_relative '../classes/label'
 require_relative '../classes/book'
 require_relative '../classes/game'
 require_relative '../classes/music'
-require_relative 'mainMethods'
+require_relative 'main_methods'
 
 module CreateMusic
   include MainMethods
@@ -20,8 +20,8 @@ module CreateMusic
     file_data = JSON.parse(file)
     file_data.each do |album|
       album_instance = MusicAlbum.new(album['on_spotify'], album['date'])
-      label_instance = Label.new(album['title'], album['color'])
-      #album_instance.label = label_instance
+      # label_instance = Label.new(album['title'], album['color'])
+      # album_instance.label = label_instance
       @music_albums.push(album_instance)
     end
   end
