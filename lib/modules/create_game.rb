@@ -17,7 +17,7 @@ module CreateGame
     file = File.read('./json/game.json')
     file_data = JSON.parse(file)
     file_data.each do |game|
-      game_instance = Game.new(game['multiplayer'], game['last_played_at'])
+      game_instance = Game.new(game['multiplayer'], game['last_played_at'], game['publish_date'])
       @games.push(game_instance)
     end
   end
@@ -44,7 +44,10 @@ module CreateGame
     print 'When last was the game played?: '
     date_of = gets.chomp
 
-    new_game = Game.new(number_of_players, date_of)
+    print 'When was the game published?: '
+    publish_date = gets.chomp
+
+    new_game = Game.new(number_of_players, date_of, publish_date)
 
     add_author(new_game)
     add_genre(new_game)
