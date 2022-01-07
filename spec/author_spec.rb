@@ -5,8 +5,8 @@ describe Author do
   context 'A test on the Author class' do
     it 'should create new Author instance correctly' do
       author = Author.new('Samuel Chaw', 'Willy Tee')
-      expect(author.first_name).to eq ('Samuel Chaw')
-      expect(author.last_name).to eq ('Willy Tee')
+      expect(author.first_name).to eq('Samuel Chaw')
+      expect(author.last_name).to eq('Willy Tee')
     end
 
     it 'should add an item' do
