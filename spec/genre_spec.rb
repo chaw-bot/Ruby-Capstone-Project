@@ -8,7 +8,7 @@ describe Genre do
       expect(genre.name).to eq 'Comedy'
     end
 
-    it 'should add item' do
+    it 'should be able to add item' do
       genre = Genre.new('Indie')
       expect(genre.items).to eq []
       genre.add_item(MusicAlbum.new(true, '2020/12/12'))

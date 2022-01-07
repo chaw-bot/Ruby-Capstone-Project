@@ -10,7 +10,7 @@ describe MusicAlbum do
       expect(music_album.publish_date).to eq Date.parse('2020/12/12')
     end
 
-    it 'can be archived text' do
+    it 'checks if can be archived text' do
       music_album = MusicAlbum.new(true, '2020/12/12')
       expect(music_album.can_be_archived?).to eq false
     end
