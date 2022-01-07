@@ -15,7 +15,6 @@ class Book < Item
 
   def to_json(*_args)
     JSON.dump({
-                # publisher: @publisher
                 publish_date: @publish_date,
                 cover_state: @cover_state
               })
