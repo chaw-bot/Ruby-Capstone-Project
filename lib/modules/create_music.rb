@@ -44,9 +44,9 @@ module CreateMusic
     publish_date = gets.chomp
 
     print 'Is it on Spotify? Yes/No: '
-    spotify = gets.chomp
+    on_spotify = gets.chomp
 
-    new_album = MusicAlbum.new(spotify, publish_date)
+    new_album = MusicAlbum.new(on_spotify, publish_date)
 
     add_author(new_album)
     add_genre(new_album)

@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS books (
     FOREIGN KEY (label_id) REFERENCES label (id)
 );
 
-CREATE TABLE IF NOT EXISTS music_album (
+CREATE TABLE IF NOT EXISTS games (
   id SERIAL PRIMARY KEY,
   multiplayer VARCHAR(100),
   last_played_at DATE
