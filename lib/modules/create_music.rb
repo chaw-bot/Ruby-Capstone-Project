@@ -18,8 +18,8 @@ module CreateMusic
     file_data = JSON.parse(file)
     file_data.each do |album|
       album_instance = MusicAlbum.new(album['on_spotify'], album['date'])
-      label_instance = Label.new(album['title'], album['color'])
-      album_instance.label = label_instance
+      # label_instance = Label.new(album['title'], album['color'])
+      # album_instance.label = label_instance
       @music_albums.push(album_instance)
     end
   end
