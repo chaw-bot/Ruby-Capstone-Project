@@ -12,7 +12,7 @@ describe Genre do
       genre = Genre.new('Indie')
       expect(genre.items).to eq []
       genre.add_item(MusicAlbum.new(true, '2020/12/12'))
-      expect(genre.items[0].class.name).to eq "MusicAlbum"
+      expect(genre.items[0].class.name).to eq 'MusicAlbum'
     end
   end
 end
