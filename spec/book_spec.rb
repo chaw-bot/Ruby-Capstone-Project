@@ -1,4 +1,4 @@
-require_relative '../lib/classes/book.rb'
+require_relative '../lib/classes/book'
 
 describe Book do
   cover_state = 'Good'
@@ -17,4 +17,3 @@ describe Book do
     expect(book.can_be_archived?).to eq(true)
   end
 end
-

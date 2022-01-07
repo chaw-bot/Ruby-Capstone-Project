@@ -1,5 +1,5 @@
-require_relative '../lib/classes/label.rb'
-require_relative '../lib/classes/item.rb'
+require_relative '../lib/classes/label'
+require_relative '../lib/classes/item'
 
 describe Label do
   title = 'Gaumont'
