@@ -5,12 +5,13 @@ module LabelModule
 
   def label_list
     if @labels.empty?
-      puts Rainbow(' No labels entered yet. ').white.bright.bg(:red)
+      puts Rainbow("\n No labels entered yet.").red.bright
+      puts Rainbow(' -----------------------').red.bright
     else
-      puts Rainbow(" List of all labels:\n ").green.bright.underline
+      puts Rainbow("\n List of all labels:\n").aqua.bright.underline
       @labels.each_with_index do |label, index|
-        puts "#{index + 1}. #{label.title}"
-        puts '____________________________________________'
+        puts Rainbow(" #{index + 1}. #{label.title}").white.bright
+        puts Rainbow("_______________________________________\n").aqua.bright
       end
     end
   end

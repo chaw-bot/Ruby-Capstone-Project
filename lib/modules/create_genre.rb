@@ -5,12 +5,13 @@ module GenreModule
 
   def genre_list
     if @genres.length.zero?
-      puts Rainbow(' No genres entered yet. ').white.bright.bg(:red)
+      puts Rainbow("\n No genres entered yet.").red.bright
+      puts Rainbow(' -----------------------').red.bright
     else
-      puts Rainbow(" List of all genres:\n ").green.bright.underline
+      puts Rainbow("\n List of all genres:\n").aqua.bright.underline
       @genres.each_with_index do |genre, index|
-        puts "#{index + 1}. #{genre.name}"
-        puts '____________________________________________'
+        puts Rainbow(" #{index + 1}. #{genre.name}").white.bright
+        puts Rainbow("_______________________________________\n").aqua.bright
       end
     end
   end

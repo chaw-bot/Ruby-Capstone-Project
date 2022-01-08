@@ -3,9 +3,13 @@ require_relative '../classes/genre'
 require_relative '../classes/label'
 require_relative '../classes/music'
 require_relative 'main_methods'
+require_relative 'create_book'
+require_relative 'create_game'
 
 module CreateMusic
   include MainMethods
+  include CreateBook
+  include CreateGame
 
   def save_album
     File.write('./json/album.json', JSON.dump(@music_albums))
@@ -40,10 +44,10 @@ module CreateMusic
   end
 
   def create_music_album
-    puts ' When was the release date? '
+    puts "\n When was the release date?(yyyy/mm/dd) "
     publish_date = gets.chomp
 
-    print 'Is it on Spotify? Yes/No: '
+    print ' Is it on Spotify? Yes/No: '
     on_spotify = gets.chomp
 
     new_album = MusicAlbum.new(on_spotify, publish_date)
@@ -53,22 +57,26 @@ module CreateMusic
     add_label(new_album)
 
     save_genre
+    save_label
+    save_author
 
     @music_albums.push(new_album)
 
     save_album
 
-    puts Rainbow(' Album created! ').white.bright.bg(:green)
+    puts Rainbow("\n Album created!").indianred.bright
+    puts Rainbow('-----------------').indianred.bright
   end
 
   def album_list
     if @music_albums.length.zero?
-      puts Rainbow(" No albums added yet!\n ").white.bright.bg(:red)
+      puts Rainbow("\n No albums added yet!").red.bright
+      puts Rainbow('----------------------').red.bright
     else
-      puts Rainbow(" List of Albums:\n ").white.bright.underline
+      puts Rainbow("\n List of Albums:\n").aqua.bright.underline
       @music_albums.each_with_index do |album, index|
-        puts "#{index + 1}. Published on: #{album.publish_date}\n-  Is it on Spotify #{album.on_spotify}"
-        puts '____________________________________________'
+        puts " #{index + 1}. Album title: #{album.label.title}\n  - Published on: #{album.publish_date}\n  - Is it on Spotify #{album.on_spotify} #{album.label.title}"
+        puts Rainbow("__________________________________________\n").aqua.bright
       end
     end
   end

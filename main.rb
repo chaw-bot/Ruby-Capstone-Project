@@ -35,27 +35,26 @@ class HomePage
   def menu
     Dir.mkdir 'json' unless Dir.exist? 'json'
 
-    puts Rainbow("\nWelcome to your Catalog!\n").blue.bright.underline
-    puts Rainbow('  Please choose your option: ').red.bright.underline.bg(:pink)
-
+    puts Rainbow("\n Welcome to your Catalog!").gold.bright
+    print Rainbow("\n Please choose your option:\n\n").magenta.bright.underline
     @options = {
-      ' 1': 'List all books        ',
-      ' 2': 'List all labels       ',
-      ' 3': 'List all music albums ',
-      ' 4': 'List all genres       ',
-      ' 5': 'List of games         ',
-      ' 6': 'List all authors      ',
-      ' 7': 'Add a music album     ',
-      ' 8': 'Add a book            ',
-      ' 9': 'Add a game            ',
-      ' 10': 'Exit                 '
+      ' 1': 'List all books',
+      ' 2': 'List all labels',
+      ' 3': 'List all music albums',
+      ' 4': 'List all genres',
+      ' 5': 'List all games',
+      ' 6': 'List all authors',
+      ' 7': 'Add a music album',
+      ' 8': 'Add a book',
+      ' 9': 'Add a game',
+      ' 10': 'EXIT'
     }
 
     @options.each do |index, string|
-      puts Rainbow("#{index} - #{string}").black.bright.bg(:pink)
+      puts Rainbow("#{index} - #{string}").white.bright
     end
-
-    puts "\nEnter option from above list: "
+    puts Rainbow('___________________________').magenta.bright
+    print "\n Enter option from above list: "
     gets.chomp.to_i
   end
 
@@ -81,10 +80,13 @@ class HomePage
     when 9
       create_game_list
     when 10
-      puts Rainbow(' Bye! See you soon! ').white.bright.bg(:green)
+      puts Rainbow("\n Bye! See you soon!").gold.bright
+      puts Rainbow('--------------------').gold.bright
+      puts "\n"
       exit
     else
-      puts Rainbow(' Invalid option! ').white.bright.bg(:red)
+      puts Rainbow("\n Invalid option!").red.bright
+      puts Rainbow('----------------------').red.bright
     end
   end
   # rubocop:enable Metrics/CyclomaticComplexity

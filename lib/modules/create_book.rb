@@ -3,6 +3,8 @@ require_relative '../classes/genre'
 require_relative '../classes/label'
 require_relative '../classes/book'
 require_relative 'main_methods'
+require_relative 'create_game'
+require_relative 'create_music'
 
 module CreateBook
   include MainMethods
@@ -18,6 +20,8 @@ module CreateBook
     file_data = JSON.parse(file)
     file_data.each do |book|
       book_instance = Book.new(book['publish_date'], book['cover_state'])
+      label_instance = Label.new(book['title'], book['color'])
+      book_instance.label = label_instance
       @books.push(book_instance)
     end
   end
@@ -38,10 +42,10 @@ module CreateBook
   end
 
   def create_book_list
-    puts 'On what date was the book released? '
+    print "\n On what date was the book released?(yyyy/mm/dd) "
     publish_date = gets.chomp
 
-    print 'Is the cover in a good/bad state? Good/Bad: '
+    print ' Is the cover in a good/bad state? '
     state = gets.chomp
 
     new_book = Book.new(publish_date, state)
@@ -51,24 +55,26 @@ module CreateBook
     add_label(new_book)
 
     save_label
+    save_author
+    save_genre
 
     @books.push(new_book)
 
     save_book
 
-    puts Rainbow('Book created!').white.bright.bg(:green)
+    puts Rainbow("\n Book created!").indianred.bright
+    puts Rainbow('-----------------').indianred.bright
   end
 
   def book_list
     if @books.length.zero?
-      puts Rainbow(" No books added yet!\n ").white.bright.underline.bg(:red)
+      puts Rainbow("\n No books added yet!").red.bright
+      puts Rainbow('----------------------').red.bright
     else
-      puts Rainbow("List of books:\n").green.bright.underline
+      puts Rainbow("\n List of books:\n").aqua.bright.underline
       @books.each_with_index do |book, index|
-        puts "#{index + 1}. Publisher: #{book.publisher}\n
-        -  Published on: #{book.publish_date}\n
-        -  Cover State: #{book.cover_state}"
-        puts '____________________________________________'
+        puts " #{index + 1}. Book title: #{book.label.title}\n  - Published on: #{book.publish_date}\n  - Cover State: #{book.cover_state}"
+        puts Rainbow("__________________________________________\n").aqua.bright
       end
     end
   end

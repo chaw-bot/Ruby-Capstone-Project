@@ -16,7 +16,8 @@ class Game < Item
 
   def to_json(*_args)
     JSON.dump({
-                # publisher: @publisher
+                title: @label.title,
+                color: @label.color,
                 publish_date: @publish_date,
                 multiplayer: @multiplayer,
                 last_played_at: @last_played_at
